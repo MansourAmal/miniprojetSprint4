@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Piece {
@@ -15,6 +16,15 @@ public class Piece {
 	private String nomPiece;
 	private String auteurPiece;
 	private Date dateCreation;
+	@ManyToOne
+	private Genre genre;
+	
+	public Genre getGenre() {
+		return genre;
+	}
+	public void setGenre(Genre genre) {
+		this.genre = genre;
+	}
 	public Piece(String nomPiece, String auteurPiece, Date dateCreation) {
 		super();
 		this.nomPiece = nomPiece;

@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import java.util.Date;
 import java.util.List;
 
+import com.amal.piece.entities.Genre;
 import com.amal.piece.entities.Piece;
 import com.amal.piece.repos.PieceRepository;
 import com.amal.piece.service.PieceService;
@@ -20,6 +21,7 @@ class TheatreApplicationTests {
 	
 	@Autowired
 	PieceService pieceService;
+	
 	@Test
 	 public void testFindByNomPiecetContains()
 	 {
@@ -29,11 +31,7 @@ class TheatreApplicationTests {
 		 System.out.println(prods.getTotalPages());
 		 prods.getContent().forEach(p -> {System.out.println(p.toString());
 		});
-		 /*ou bien
-		 for (Piece p : pieces)
-		 {
-		 System.out.println(p);
-		 } */
+		
 	 }
 	
 	@Test
@@ -70,6 +68,82 @@ class TheatreApplicationTests {
 		System.out.println(p);
 		}
 	}
+	
+	@Test
+	public void testFindByNomPiece()
+	{
+		List<Piece> pieces = pieceRepository.findByNomPiece("Hamlet");
+		for (Piece p : pieces)
+		{
+			System.out.println(p);
+		}
+	}
+	@Test
+	public void testFindByNomPieceContains()
+	{
+		List<Piece> pieces = pieceRepository.findByNomPieceContains("A");
+		for (Piece p : pieces)
+		{
+			System.out.println(p);
+		}
+	}
+	
+	@Test
+	public void testfindByNomAuteur()
+	{
+		List<Piece> prods = pieceRepository.findByNomAuteur("Hamlet", "william");
+		for (Piece p : prods)
+		{
+			System.out.println(p);
+		}
+	}
+	@Test
+	public void testfindByGenre()
+	{
+		Genre gen = new Genre();
+		gen.setIdG(1L);
+		List<Piece> pieces = pieceRepository.findByGenre(gen);
+		for (Piece p : pieces)
+		{
+			System.out.println(p);
+		}
+	}
+	
+	@Test
+	public void findByGenreIdG()
+	{
+		List<Piece> prods = pieceRepository.findByGenreIdG(1L);
+		for (Piece p : prods)
+		{
+			System.out.println(p);
+		}
+	 }
+	
+	@Test
+	public void testfindByOrderByNomProduitAsc()
+	{
+		List<Piece> prods = pieceRepository.findByOrderByNomPieceAsc();
+		for (Piece p : prods)
+		{
+			System.out.println(p);
+		}
+	}
+	
+	@Test
+	public void testTrierPiecesNomsAuteur()
+	{
+		List<Piece> prods = pieceRepository.trierPiecesNomsAuteur();
+		for (Piece p : prods)
+		{
+			System.out.println(p);
+		}
+	}
+
+
+
+	
+	
+
 	
 	 
 
