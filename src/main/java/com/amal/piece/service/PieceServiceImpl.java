@@ -9,13 +9,15 @@ import org.springframework.stereotype.Service;
 
 import com.amal.piece.entities.Genre;
 import com.amal.piece.entities.Piece;
+import com.amal.piece.repos.GenreRepository;
 import com.amal.piece.repos.PieceRepository;
 
 @Service
 public class PieceServiceImpl implements PieceService{
 	@Autowired
 	PieceRepository pieceRepository;
-
+	@Autowired
+	GenreRepository genreRepository;
 
 	@Override
 	public Piece savePiece(Piece p) {
@@ -86,6 +88,11 @@ public class PieceServiceImpl implements PieceService{
 	@Override
 	public List<Piece> trierPiecesNomsAuteur() {
 		return pieceRepository.trierPiecesNomsAuteur();
+	}
+
+	@Override
+	public List<Genre> getAllGenres() {
+		return  genreRepository.findAll();
 	}
 	
 

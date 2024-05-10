@@ -18,8 +18,6 @@ public interface PieceService {
 	Piece getPiece(Long id);
 	List<Piece> getAllPieces();
 	Page<Piece> getAllPiecesParPage(int page, int size);
-
-
 	List<Piece> findByNomPiece(String nom);
 	List<Piece> findByNomPieceContains(String nom);
 	List<Piece> findByNomAuteur (String nom,String auteur);
@@ -27,5 +25,7 @@ public interface PieceService {
 	List<Piece> findByGenreIdG(Long id);
 	List<Piece> findByOrderByNomPieceAsc();
 	List<Piece> trierPiecesNomsAuteur ();
+	
+	List<Genre> getAllGenres(); 
 
 }

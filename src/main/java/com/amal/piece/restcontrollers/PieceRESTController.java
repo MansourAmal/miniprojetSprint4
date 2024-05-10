@@ -50,6 +50,7 @@ public class PieceRESTController {
 	public List<Piece> getPiecesByGId(@PathVariable("idG") Long idG) {
 	return pieceService.findByGenreIdG(idG);
 	}
+	
 
 
 }

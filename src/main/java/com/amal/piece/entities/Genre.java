@@ -34,9 +34,7 @@ public class Genre {
 		this.descriptionG = descriptionG;
 		this.pieces = pieces;
 	}
-	public Genre() {
-		super();
-	}
+	
 	public Long getIdG() {
 		return idG;
 	}
