@@ -94,13 +94,17 @@ public class PieceController {
 	 
 	 
 	 @RequestMapping("/modifierPiece")
-	public String editerPiece(@RequestParam("id") Long id,ModelMap modelMap)
+	public String editerPiece(@RequestParam("id") Long id,ModelMap modelMap,
+			@RequestParam (name="page",defaultValue = "0") int page,
+			@RequestParam (name="size", defaultValue = "2") int size)
 	{
 		Piece p= pieceService.getPiece(id);
 		List<Genre> Gen = pieceService.getAllGenres();
 		modelMap.addAttribute("piece", p);
 		modelMap.addAttribute("mode", "edit");
 		modelMap.addAttribute("genres", Gen);
+		modelMap.addAttribute("currentPage", page);
+		modelMap.addAttribute("size", size);
 		return "formPiece";
 	}
 	 

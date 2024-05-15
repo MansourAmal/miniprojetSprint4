@@ -15,8 +15,8 @@
 			<div class="card-header" th:if="${mode=='edit'}">Modification des Pieces </div>
 			<div class="card-body">
 				<form th:action="@{savePiece}" method="post">
-					<input  name="page" class="form-control" th:value="${page}"  /> 
-					<input  name="size" class="form-control" th:value="${size}"  /> 
+					<input  hidden  name="page" class="form-control" th:value="${currentPage}"  /> 
+					<input  hidden  name="size" class="form-control" th:value="${size}"  /> 
 					<div class="form-group">
 						<label class="control-label" hidden>ID Piece :</label>
 						<input type="hidden" name="idPiece" class="form-control" th:value="${piece.idPiece}" />

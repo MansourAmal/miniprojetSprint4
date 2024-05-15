@@ -21,11 +21,11 @@ public class Piece {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idPiece;
 	
-	@NotNull
-	@Size (min = 4,max = 15)
+	/*@NotNull
+	@Size (min = 4,max = 15)*/
 	private String nomPiece;
-	@NotNull
-	@Size (min = 4,max = 15)
+	/*@NotNull
+	@Size (min = 4,max = 15)*/
 	private String auteurPiece;
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
